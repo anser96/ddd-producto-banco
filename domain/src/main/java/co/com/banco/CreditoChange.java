@@ -1,7 +1,6 @@
 package co.com.banco;
 
 import co.com.banco.event.CreditoCreated;
-import co.com.banco.value.CreditoLibranzaID;
 import co.com.sofka.domain.generic.EventChange;
 
 public class CreditoChange extends EventChange {
