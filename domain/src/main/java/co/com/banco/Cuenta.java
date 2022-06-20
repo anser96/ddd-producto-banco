@@ -1,10 +1,7 @@
 package co.com.banco;
 
 import co.com.banco.entity.CuentaAhorro;
-import co.com.banco.event.CreditoCarteraCreated;
-import co.com.banco.event.CuentaAhorroCreated;
-import co.com.banco.event.CuentaCorrienteCreated;
-import co.com.banco.event.CuentaCreated;
+import co.com.banco.event.*;
 import co.com.banco.value.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 
@@ -34,7 +31,12 @@ public class Cuenta extends AggregateEvent<CuentaID> {
         subscribe(new CuentaChange(this));
     }
 
+    public Cuenta(CuentaID cuentaID, CuentaNominaID cuentaNominaID, NumeroCuenta numeroCuenta) {
+        super(cuentaID);
+        appendChange(new CuentaNominaCreated(cuentaNominaID, numeroCuenta)).apply();
+        subscribe(new CuentaChange(this));
 
+    }
 
 
     public CuentaAhorro cuentaAhorro(){

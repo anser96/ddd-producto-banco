@@ -1,7 +1,6 @@
 package co.com.banco;
 
 import co.com.banco.event.CreditoCreated;
-import co.com.banco.event.CuentaCreated;
 import co.com.banco.value.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 
