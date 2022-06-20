@@ -2,6 +2,8 @@ package co.com.banco;
 
 import co.com.banco.event.TarjetaCreated;
 import co.com.banco.event.TarjetaCreditoCreated;
+import co.com.banco.event.TarjetaDebitoCreated;
+import co.com.banco.event.TarjetaEPrepagoCreated;
 import co.com.banco.value.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 
@@ -22,6 +24,18 @@ public class Tarjeta extends AggregateEvent<TarjetaID> {
     public Tarjeta(TarjetaID tarjetaID, TarjetaCreditoID tarjetaCreditoID, NumeroTarjeta numeroTarjeta) {
         super(tarjetaID);
         appendChange(new TarjetaCreditoCreated(tarjetaCreditoID, numeroTarjeta)).apply();
+        subscribe(new TarjetaChange(this));
+    }
+
+    public Tarjeta(TarjetaID tarjetaID, TarjetaDebitoID tarjetaDebitoID, NumeroTarjeta numeroTarjeta) {
+        super(tarjetaID);
+        appendChange(new TarjetaDebitoCreated(tarjetaDebitoID, numeroTarjeta)).apply();
+        subscribe(new TarjetaChange(this));
+    }
+
+    public Tarjeta(TarjetaID tarjetaID, TarjetaEPrepagoID tarjetaEPrepagoID, NumeroTarjeta numeroTarjeta) {
+        super(tarjetaID);
+        appendChange(new TarjetaEPrepagoCreated(tarjetaEPrepagoID, numeroTarjeta)).apply();
         subscribe(new TarjetaChange(this));
     }
 }
