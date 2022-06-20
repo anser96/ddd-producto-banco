@@ -38,6 +38,26 @@ public class Cuenta extends AggregateEvent<CuentaID> {
 
     }
 
+    public void actualizarCuentaNomina(CuentaNominaID cuentaNominaID, NumeroCuenta numeroCuenta,
+                                     Saldo saldo, InteresGenerado interesGenerado, AnticipoPermitido anticipoPermitido){
+
+        appendChange(new CuentaNominaActualizada(cuentaNominaID, numeroCuenta, saldo, interesGenerado, anticipoPermitido)).apply();
+    }
+
+    public void actualizarCuentaAhorro(CuentaAhorroID cuentaAhorroID, NumeroCuenta numeroCuenta,
+                                       Saldo saldo, InteresGenerado interesGenerado, NumeroRetirosGratis numeroRetirosGratis){
+
+        appendChange(new CuentaAhorroActualizada(cuentaAhorroID, numeroCuenta, saldo, interesGenerado, numeroRetirosGratis)).apply();
+    }
+
+    public void actualizarCuentaCorriente(CuentaCorrienteID cuentaCorrienteID, NumeroCuenta numeroCuenta,
+                                       SobreGiro sobreGiro, CantChequesDisponibles cantChequesDisponibles){
+
+        appendChange(new CuentaCorrienteActualizada(cuentaCorrienteID, numeroCuenta,sobreGiro, cantChequesDisponibles)).apply();
+    }
+
+
+
 
     public CuentaAhorro cuentaAhorro(){
         return cuentaAhorro;
