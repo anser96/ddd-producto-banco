@@ -4,14 +4,20 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class TotalDescuentoNomina implements ValueObject<TotalDescuentoNomina> {
-    private final TotalDescuentoNomina value;
+public class TotalDescuentoNomina implements ValueObject<String> {
+    private final String value;
 
-    public TotalDescuentoNomina(TotalDescuentoNomina value) {
+    public TotalDescuentoNomina(String value) {
         this.value = Objects.requireNonNull(value);
+        if (value.isBlank()){
+            throw new IllegalArgumentException("el campo no debe estar en blanco");
+        }
     }
 
-    public  TotalDescuentoNomina value() {
+    public static TotalDescuentoNomina of(String value) {
+        return new TotalDescuentoNomina(value);
+    }
+    public  String value() {
         return value;
     }
 }

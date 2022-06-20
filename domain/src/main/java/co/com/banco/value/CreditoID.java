@@ -5,7 +5,7 @@ import co.com.banco.Credito;
 import co.com.sofka.domain.generic.Identity;
 
 public class CreditoID extends Identity {
-    private CreditoID(String value) {
+    public CreditoID(String value) {
         super(value);
     }
 

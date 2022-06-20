@@ -3,7 +3,7 @@ package co.com.banco.value;
 import co.com.sofka.domain.generic.Identity;
 
 public class CreditoLInversionID extends Identity {
-    private CreditoLInversionID(String value) {
+    public CreditoLInversionID(String value) {
         super(value);
     }
 

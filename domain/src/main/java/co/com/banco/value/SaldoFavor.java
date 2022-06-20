@@ -1,19 +1,24 @@
 package co.com.banco.value;
 
-import co.com.sofka.domain.generic.Entity;
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class SaldoFavor implements ValueObject<SaldoFavor> {
+public class SaldoFavor implements ValueObject<String> {
 
-    private final SaldoFavor value;
+    private final String value;
 
-    public SaldoFavor(SaldoFavor value) {
+    public SaldoFavor(String value) {
         this.value = Objects.requireNonNull(value);
+        if (value.isBlank()) {
+            throw new IllegalArgumentException("el cmapo no debe estar en blanco");
+        }
     }
 
-    public SaldoFavor value() {
+    public static SaldoFavor of(String value) {
+        return new SaldoFavor(value);
+    }
+    public String value() {
         return value;
     }
 
