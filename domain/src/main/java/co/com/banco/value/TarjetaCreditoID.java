@@ -4,7 +4,7 @@ import co.com.banco.TarjetaChange;
 import co.com.sofka.domain.generic.Identity;
 
 public class TarjetaCreditoID extends Identity {
-    private TarjetaCreditoID(String value) {
+    public TarjetaCreditoID(String value) {
         super(value);
     }
 

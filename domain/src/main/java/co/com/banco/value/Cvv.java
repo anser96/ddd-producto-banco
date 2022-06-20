@@ -4,14 +4,19 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Cvv implements ValueObject<Cvv> {
-    private final Cvv value;
+public class Cvv implements ValueObject<String > {
+    private final String value;
 
-    public Cvv(Cvv value) {
+    public Cvv(String value) {
         this.value = Objects.requireNonNull(value);
+        throw new IllegalArgumentException("el campo no deebe estar en blanco");
     }
 
-    public Cvv value() {
+    public static Cvv of(String value) {
+        return new Cvv(value);
+    }
+
+    public String value() {
         return value;
     }
 }
