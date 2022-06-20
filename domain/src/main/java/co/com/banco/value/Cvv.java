@@ -9,7 +9,9 @@ public class Cvv implements ValueObject<String > {
 
     public Cvv(String value) {
         this.value = Objects.requireNonNull(value);
-        throw new IllegalArgumentException("el campo no deebe estar en blanco");
+        if (value.isBlank()) {
+            throw new IllegalArgumentException("el campo no deebe estar en blanco");
+        }
     }
 
     public static Cvv of(String value) {

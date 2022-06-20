@@ -27,7 +27,7 @@ public class CreateCreditoCaerteraUseCaseTest {
         var creditoCarteraID = new CreditoCarteraID("15");
         var creditoID = new CreditoID("96");
         var numeroCredito = new NumeroCredito("1111212121");
-        var entidadLiquidada = new EntidadLiquidada("");
+        var entidadLiquidada = new EntidadLiquidada("coomeva");
         var saldoFavor = new SaldoFavor("410000");
         var montoDesembolsado = new MontoDesembolsado("5550000000");
         var numeroCuota = new NumeroCuota("36");
@@ -45,6 +45,6 @@ public class CreateCreditoCaerteraUseCaseTest {
 
         //assert
         var creditoCarteraCreated = (CreditoCarteraCreated)event.get(0);
-        Assertions.assertEquals("9",creditoCarteraCreated.aggregateRootId());
+        Assertions.assertEquals("96",creditoCarteraCreated.aggregateRootId());
     }
 }

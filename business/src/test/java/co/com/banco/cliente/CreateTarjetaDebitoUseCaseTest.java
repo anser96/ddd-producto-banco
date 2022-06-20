@@ -27,7 +27,7 @@ public class CreateTarjetaDebitoUseCaseTest {
         var tarjetaDebitoID = new TarjetaDebitoID("101");
         var tarjetaID = new TarjetaID("555");
         var numeroTarjeta = new NumeroTarjeta("992222");
-        var fechaVencimiento = new FechaVencimiento("0");
+        var fechaVencimiento = new FechaVencimiento("23");
         var cvv = new Cvv("725");
         var nombrePropietario = new NombrePropietario("Jhon Due");
         var saldo = new Saldo("10000");
@@ -45,6 +45,6 @@ public class CreateTarjetaDebitoUseCaseTest {
 
         //assert
         var tarjetaDebitoCreada = (TarjetaDebitoCreated)event.get(0);
-        Assertions.assertEquals("9",tarjetaDebitoCreada.aggregateRootId());
+        Assertions.assertEquals("555",tarjetaDebitoCreada.aggregateRootId());
     }
 }

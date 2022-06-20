@@ -44,6 +44,6 @@ public class CreateCreditoLibranzaUseCaseTest {
 
         //assert
         var creditoLibranzaCreated = (CreditoLibranzaCreated)event.get(0);
-        Assertions.assertEquals("9",creditoLibranzaCreated.aggregateRootId());
+        Assertions.assertEquals("56",creditoLibranzaCreated.aggregateRootId());
     }
 }

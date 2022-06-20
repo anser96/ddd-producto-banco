@@ -25,14 +25,14 @@ public class CreateTarjetaCreditoUseCaseTest {
     @Test
     void createTarjetaCredito(){
         //arrange
-        var tarjetaCreditoID = new TarjetaCreditoID("10");
-        var tarjetaID = new TarjetaID("55");
-        var numeroTarjeta = new NumeroTarjeta("222222");
-        var fechaVencimiento = new FechaVencimiento("0");
-        var cvv = new Cvv("025");
-        var nombrePropietario = new NombrePropietario("Jhon Due");
-        var cupoDisponible = new CupoDisponible("1000");
-        var franquicia = new Franquicia("Visa");
+        var tarjetaCreditoID = new TarjetaCreditoID("189");
+        var tarjetaID = new TarjetaID("524");
+        var numeroTarjeta = new NumeroTarjeta("225656562");
+        var fechaVencimiento = new FechaVencimiento("14");
+        var cvv = new Cvv("026");
+        var nombrePropietario = new NombrePropietario("Jhon Alex");
+        var cupoDisponible = new CupoDisponible("100000000");
+        var franquicia = new Franquicia("American Express");
 
         var command = new CreateTarjetaCredito(tarjetaID, tarjetaCreditoID,numeroTarjeta,fechaVencimiento,cvv,
                 nombrePropietario,cupoDisponible,franquicia);
@@ -46,7 +46,7 @@ public class CreateTarjetaCreditoUseCaseTest {
 
         //assert
         var tarjetaCreditoCreada = (TarjetaCreditoCreated)event.get(0);
-        Assertions.assertEquals("9",tarjetaCreditoCreada.aggregateRootId());
+        Assertions.assertEquals("524",tarjetaCreditoCreada.aggregateRootId());
     }
 
 }

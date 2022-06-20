@@ -4,6 +4,7 @@ import co.com.banco.command.CreateCreditoLIversion;
 import co.com.banco.command.CreateCreditoLibranza;
 import co.com.banco.entity.CreditoLInversion;
 import co.com.banco.event.CreditoLibranzaCreated;
+import co.com.banco.event.CreditoLibreInversionCreated;
 import co.com.banco.usecase.CreateCreditoLInversionUseCase;
 import co.com.banco.usecase.CreateCreditoLibranzaUseCase;
 import co.com.banco.value.*;
@@ -43,7 +44,7 @@ public class CreateCreditoLInversionUseCaseTest {
 
 
         //assert
-        var creditoLInversionCreated = (CreditoLibranzaCreated)event.get(0);
-        Assertions.assertEquals("9",creditoLInversionCreated.aggregateRootId());
+        var creditoLInversionCreated = (CreditoLibreInversionCreated)event.get(0);
+        Assertions.assertEquals("96",creditoLInversionCreated.aggregateRootId());
     }
 }

@@ -25,13 +25,13 @@ public class CreateTarjetaEPrepagoUseCaseTest {
     void createTarjetaEPrepago(){
         //arrange
         var tarjetaEPrepagoID = new TarjetaEPrepagoID("10");
-        var tarjetaID = new TarjetaID("55");
+        var tarjetaID = new TarjetaID("52");
         var numeroTarjeta = new NumeroTarjeta("222222");
         var fechaVencimiento = new FechaVencimiento("0");
         var cvv = new Cvv("025");
         var nombrePropietario = new NombrePropietario("Jhon Due");
         var saldoRecargado = new SaldoRecargado("1000");
-        var franquicia = new Franquicia("");
+        var franquicia = new Franquicia("Visa");
 
         var command = new CreateTarjetaEPrepago(tarjetaID, tarjetaEPrepagoID,numeroTarjeta,fechaVencimiento,cvv,
                 nombrePropietario,saldoRecargado,franquicia);
@@ -45,6 +45,6 @@ public class CreateTarjetaEPrepagoUseCaseTest {
 
         //assert
         var tarjetaEPrepagoCreated = (TarjetaEPrepagoCreated)event.get(0);
-        Assertions.assertEquals("9",tarjetaEPrepagoCreated.aggregateRootId());
+        Assertions.assertEquals("52",tarjetaEPrepagoCreated.aggregateRootId());
     }
 }
