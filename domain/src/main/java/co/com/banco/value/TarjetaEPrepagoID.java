@@ -4,7 +4,7 @@ import co.com.banco.TarjetaChange;
 import co.com.sofka.domain.generic.Identity;
 
 public class TarjetaEPrepagoID extends Identity {
-    private TarjetaEPrepagoID(String value) {
+    public TarjetaEPrepagoID(String value) {
         super(value);
     }
 
