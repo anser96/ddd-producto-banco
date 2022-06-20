@@ -22,6 +22,7 @@ public class CreditoCarteraCreated extends DomainEvent {
         this.valorCuota = valorCuota;
     }
 
+
     public NumeroCredito getNumeroCredito() {
         return numeroCredito;
     }

@@ -1,15 +1,23 @@
 package co.com.banco.entity;
 
 import co.com.banco.value.*;
+import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.Entity;
 
-public class CuentaAhorro extends Entity<CuentaAhorroID> {
-    private final NumeroCuenta numeroCuenta;
-    private final Saldo saldo;
-    private final InteresGenerado interesGenerado;
-    private final NumeroRetirosGratis numeroRetirosGratis;
+public class CuentaAhorro extends AggregateEvent<CuentaAhorroID> {
+    protected CuentaAhorroID cuentaAhorroID;
+    protected NumeroCuenta numeroCuenta;
+    protected Saldo saldo;
+    protected InteresGenerado interesGenerado;
+    protected NumeroRetirosGratis numeroRetirosGratis;
+    protected TipoCuenta tipoCuenta;
 
-    public CuentaAhorro(CuentaAhorroID cuentaAhorroID, NumeroCuenta numeroCuenta, Saldo saldo, InteresGenerado interesGenerado,
+
+    public CuentaAhorro(CuentaAhorroID cuentaAhorroID) {
+        super(cuentaAhorroID);
+    }
+    public CuentaAhorro(CuentaAhorroID cuentaAhorroID, NumeroCuenta numeroCuenta, Saldo saldo,
+                        InteresGenerado interesGenerado,
                         NumeroRetirosGratis numeroRetirosGratis) {
         super(cuentaAhorroID);
         this.numeroCuenta = numeroCuenta;
@@ -18,19 +26,18 @@ public class CuentaAhorro extends Entity<CuentaAhorroID> {
         this.numeroRetirosGratis = numeroRetirosGratis;
     }
 
-    public NumeroCuenta getNumeroCuenta() {
-        return numeroCuenta;
-    }
+   public CuentaAhorro(CuentaAhorroID cuentaAhorroID, TipoCuenta tipoCuenta, NumeroCuenta numeroCuenta) {
+        super(cuentaAhorroID);
+        this.tipoCuenta = tipoCuenta;
+        this.numeroCuenta = numeroCuenta;
+   }
 
-    public Saldo getSaldo() {
-        return saldo;
-    }
-
-    public InteresGenerado getInteresGenerado() {
-        return interesGenerado;
-    }
-
-    public NumeroRetirosGratis getNumeroRetirosGratis() {
-        return numeroRetirosGratis;
-    }
+   public void actualizarCuentaAhorro(CuentaAhorroID cuentaAhorroID, NumeroCuenta numeroCuenta, Saldo saldo,
+                                      InteresGenerado interesGenerado, NumeroRetirosGratis numeroRetirosGratis) {
+        this.cuentaAhorroID = CuentaAhorroID.of(cuentaAhorroID.value());
+        this.numeroCuenta = NumeroCuenta.of(numeroCuenta.value());
+        this.saldo = Saldo.of(saldo.value());
+        this.interesGenerado = InteresGenerado.of(interesGenerado.value());
+        this.numeroRetirosGratis = NumeroRetirosGratis.of(numeroRetirosGratis.value());
+   }
 }

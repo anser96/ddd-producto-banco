@@ -3,7 +3,7 @@ package co.com.banco.value;
 import co.com.sofka.domain.generic.Identity;
 
 public class CuentaID extends Identity {
-    private CuentaID(String value) {
+    public CuentaID(String value) {
         super(value);
     }
 

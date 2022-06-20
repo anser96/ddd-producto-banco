@@ -5,7 +5,7 @@ import co.com.sofka.domain.generic.Identity;
 import javax.management.StringValueExp;
 
 public class CuentaAhorroID extends Identity {
-    private CuentaAhorroID(String value) {
+    public CuentaAhorroID(String value) {
         super(value);
     }
 
