@@ -6,38 +6,19 @@ import co.com.sofka.domain.generic.DomainEvent;
 
 public class CreditoLibreInversionCreated extends DomainEvent {
     private final NumeroCredito numeroCredito;
-    private final ValorSeguroDeuda valorSeguroDeuda;
-    private final MontoDesembolsado montoDesembolsado;
-    private final NumeroCuota numeroCuota;
-    private final ValorCuota valorCuota;
+    private final CreditoLInversionID creditoLInversionID;
 
-    public CreditoLibreInversionCreated(NumeroCredito numeroCredito, ValorSeguroDeuda valorSeguroDeuda, MontoDesembolsado montoDesembolsado,
-                                        NumeroCuota numeroCuota, ValorCuota valorCuota) {
+    public CreditoLibreInversionCreated(CreditoLInversionID creditoLInversionID, NumeroCredito numeroCredito) {
         super("co.com.banco.event.CreditoLibreInversionCreated");
         this.numeroCredito = numeroCredito;
-        this.valorSeguroDeuda = valorSeguroDeuda;
-        this.montoDesembolsado = montoDesembolsado;
-        this.numeroCuota = numeroCuota;
-        this.valorCuota = valorCuota;
+        this.creditoLInversionID = creditoLInversionID;
     }
 
     public NumeroCredito getNumeroCredito() {
         return numeroCredito;
     }
 
-    public ValorSeguroDeuda getValorSeguroDeuda() {
-        return valorSeguroDeuda;
-    }
-
-    public MontoDesembolsado getMontoDesembolsado() {
-        return montoDesembolsado;
-    }
-
-    public NumeroCuota getNumeroCuota() {
-        return numeroCuota;
-    }
-
-    public ValorCuota getValorCuota() {
-        return valorCuota;
+    public CreditoLInversionID getCreditoLInversionID() {
+        return creditoLInversionID;
     }
 }
