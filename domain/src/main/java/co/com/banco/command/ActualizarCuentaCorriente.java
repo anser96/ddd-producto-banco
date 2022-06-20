@@ -1,21 +1,25 @@
-package co.com.banco.event;
+package co.com.banco.command;
 
 import co.com.banco.value.*;
-import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.Command;
 
-public class CuentaCorrienteActualizada extends DomainEvent {
-
-
+public class ActualizarCuentaCorriente extends Command {
+    private final CuentaID cuentaID;
     private final CuentaCorrienteID cuentaCorrienteID;
     private final NumeroCuenta numeroCuenta;
     private final SobreGiro sobreGiro;
     private final CantChequesDisponibles cantChequesDisponibles;
-    public CuentaCorrienteActualizada(CuentaCorrienteID cuentaCorrienteID, NumeroCuenta numeroCuenta,SobreGiro sobreGiro, CantChequesDisponibles cantChequesDisponibles) {
-        super("co.com.banco.event.CuentaCorrienteActualizada");
+
+    public ActualizarCuentaCorriente(CuentaID cuentaID, CuentaCorrienteID cuentaCorrienteID, NumeroCuenta numeroCuenta, SobreGiro sobreGiro, CantChequesDisponibles cantChequesDisponibles) {
+        this.cuentaID = cuentaID;
         this.cuentaCorrienteID = cuentaCorrienteID;
         this.numeroCuenta = numeroCuenta;
         this.sobreGiro = sobreGiro;
         this.cantChequesDisponibles = cantChequesDisponibles;
+    }
+
+    public CuentaID getCuentaID() {
+        return cuentaID;
     }
 
     public CuentaCorrienteID getCuentaCorrienteID() {

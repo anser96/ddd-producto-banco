@@ -1,9 +1,6 @@
 package co.com.banco.entity;
 
-import co.com.banco.value.CantChequesDisponibles;
-import co.com.banco.value.CuentaCorrienteID;
-import co.com.banco.value.NumeroCuenta;
-import co.com.banco.value.SobreGiro;
+import co.com.banco.value.*;
 import co.com.sofka.domain.generic.Entity;
 
 public class CuentaCorriente extends Entity<CuentaCorrienteID> {
@@ -18,6 +15,12 @@ public class CuentaCorriente extends Entity<CuentaCorrienteID> {
         this.sobreGiro = sobreGiro;
         this.cantChequesDisponibles = cantChequesDisponibles;
     }
+
+    public CuentaCorriente(CuentaCorrienteID cuentaCorrienteID, NumeroCuenta numeroCuenta) {
+        super(cuentaCorrienteID);
+        this.numeroCuenta = numeroCuenta;
+    }
+
 
     public NumeroCuenta getNumeroCuenta() {
         return numeroCuenta;

@@ -1,9 +1,14 @@
 package co.com.banco;
 
 import co.com.banco.entity.CuentaAhorro;
+import co.com.banco.entity.CuentaCorriente;
+import co.com.banco.entity.CuentaNomina;
 import co.com.banco.event.*;
 import co.com.banco.value.*;
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
+
+import java.util.List;
 
 public class Cuenta extends AggregateEvent<CuentaID> {
     protected CuentaID cuentaID;
@@ -12,6 +17,9 @@ public class Cuenta extends AggregateEvent<CuentaID> {
     protected CuentaCorrienteID cuentaCorrienteID;
     protected NumeroCuenta numeroCuenta;
     protected CuentaAhorro cuentaAhorro;
+
+    protected CuentaCorriente cuentaCorriente;
+    protected CuentaNomina cuentaNomina;
     public Cuenta(CuentaID cuentaID, CuentaAhorroID cuentaAhorroID, CuentaNominaID cuentaNominaID,
                   CuentaCorrienteID cuentaCorrienteID, NumeroCuenta numeroCuenta) {
         super(cuentaID);
@@ -36,6 +44,17 @@ public class Cuenta extends AggregateEvent<CuentaID> {
         appendChange(new CuentaNominaCreated(cuentaNominaID, numeroCuenta)).apply();
         subscribe(new CuentaChange(this));
 
+    }
+
+    public Cuenta(CuentaID cuentaID) {
+        super(cuentaID);
+        subscribe(new CuentaChange(this));
+    }
+
+    public static Cuenta from(CuentaID cuentaID, List<DomainEvent> events) {
+        var cuenta = new Cuenta(cuentaID);
+        events.forEach(cuenta::applyEvent);
+        return cuenta;
     }
 
     public void actualizarCuentaNomina(CuentaNominaID cuentaNominaID, NumeroCuenta numeroCuenta,
@@ -65,5 +84,25 @@ public class Cuenta extends AggregateEvent<CuentaID> {
 
     public CuentaAhorroID cuentaAhorroID(){
         return cuentaAhorroID;
+    }
+
+    public CuentaCorrienteID cuentaCorrienteID() {
+        return cuentaCorrienteID;
+    }
+
+    public CuentaCorriente cuentaCorriente() {
+        return cuentaCorriente;
+    }
+
+    public CuentaNomina cuentaNomina() {
+        return cuentaNomina;
+    }
+
+    public CuentaNominaID cuentaNominaID() {
+        return cuentaNominaID;
+    }
+
+    public CuentaID cuentaID() {
+        return cuentaID;
     }
 }
