@@ -40,6 +40,7 @@ public class CreateCuentaAhorroUseCaseTest {
         //assert
         var cuentaAhorroCreada = (CuentaAhorroCreated)eventos.get(0);
         Assertions.assertEquals("10", cuentaAhorroCreada.aggregateRootId());
+        Assertions.assertEquals("500 4564",cuentaAhorroCreada.getNumeroCuenta().value());
 
 
     }

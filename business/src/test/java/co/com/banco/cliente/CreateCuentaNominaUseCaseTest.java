@@ -42,5 +42,6 @@ public class CreateCuentaNominaUseCaseTest {
         //assert
         var cuentaNominaCreada = (CuentaNominaCreated)event.get(0);
         Assertions.assertEquals("9",cuentaNominaCreada.aggregateRootId());
+        Assertions.assertEquals("22222222", cuentaNominaCreada.getNumeroCuenta().value());
     }
 }

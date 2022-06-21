@@ -38,5 +38,6 @@ public class CreateCuentaCorrienteUseCaseTest {
         //assert
         var cuentaCorrienteCreada = (CuentaCorrienteCreated)eventos.get(0);
         Assertions.assertEquals("7",cuentaCorrienteCreada.aggregateRootId());
+        Assertions.assertEquals("33333", cuentaCorrienteCreada.getNumeroCuenta().value());
     }
 }

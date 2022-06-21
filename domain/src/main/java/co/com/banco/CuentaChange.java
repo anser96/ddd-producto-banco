@@ -19,10 +19,10 @@ public class CuentaChange extends EventChange {
             cuenta.cuentaCorriente = new CuentaCorriente(event.getCuentaCorrienteID(), event.getNumeroCuenta());
         });
 
-//        apply((CuentaNominaCreated event) -> {
-//            cuenta.numeroCuenta = event.getNumeroCuenta();
-//            cuenta.cuentaNomina = new CuentaNomina(event.getCuentaNominaID(), event.getNumeroCuenta());
-//        });
+        apply((CuentaNominaCreated event) -> {
+            cuenta.numeroCuenta = event.getNumeroCuenta();
+            cuenta.cuentaNomina = new CuentaNomina(event.getCuentaNominaID(), event.getNumeroCuenta());
+        });
 
         apply((CuentaNominaActualizada event) -> {
             var cuentaNominaID = event.getNominaID();

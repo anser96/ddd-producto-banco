@@ -46,5 +46,6 @@ public class CreateCreditoCaerteraUseCaseTest {
         //assert
         var creditoCarteraCreated = (CreditoCarteraCreated)event.get(0);
         Assertions.assertEquals("96",creditoCarteraCreated.aggregateRootId());
+        Assertions.assertEquals("1111212121",creditoCarteraCreated.getNumeroCredito().value());
     }
 }

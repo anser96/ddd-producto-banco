@@ -46,5 +46,6 @@ public class CreateTarjetaEPrepagoUseCaseTest {
         //assert
         var tarjetaEPrepagoCreated = (TarjetaEPrepagoCreated)event.get(0);
         Assertions.assertEquals("52",tarjetaEPrepagoCreated.aggregateRootId());
+        Assertions.assertEquals("222222", tarjetaEPrepagoCreated.getNumeroTarjeta().value());
     }
 }

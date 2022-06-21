@@ -46,5 +46,6 @@ public class CreateCreditoLInversionUseCaseTest {
         //assert
         var creditoLInversionCreated = (CreditoLibreInversionCreated)event.get(0);
         Assertions.assertEquals("96",creditoLInversionCreated.aggregateRootId());
+        Assertions.assertEquals("1111212121", creditoLInversionCreated.getNumeroCredito().value());
     }
 }
