@@ -1,14 +1,20 @@
 package co.com.banco.entity;
 
 import co.com.banco.value.*;
-import co.com.sofka.domain.generic.Entity;
+import co.com.sofka.domain.generic.AggregateEvent;
 
-public class CuentaNomina extends Entity<CuentaNominaID> {
+
+public class CuentaNomina extends AggregateEvent<CuentaNominaID> {
     protected CuentaNominaID cuentaNominaID;
     protected NumeroCuenta numeroCuenta;
     protected Saldo saldo;
     protected InteresGenerado interesGenerado;
     protected AnticipoPermitido anticipoPermitido;
+
+    public CuentaNomina(CuentaNominaID cuentaNominaID) {
+        super(cuentaNominaID);
+
+    }
 
     public CuentaNomina(CuentaNominaID cuentaNominaID, NumeroCuenta numeroCuenta, Saldo saldo, InteresGenerado interesGenerado,
                         AnticipoPermitido anticipoPermitido) {
@@ -30,21 +36,5 @@ public class CuentaNomina extends Entity<CuentaNominaID> {
         this.saldo = Saldo.of(saldo.value());
         this.interesGenerado = InteresGenerado.of(interesGenerado.value());
         this.anticipoPermitido = AnticipoPermitido.of(anticipoPermitido.value());
-    }
-
-    public NumeroCuenta getNumeroCuenta() {
-        return numeroCuenta;
-    }
-
-    public Saldo getSaldo() {
-        return saldo;
-    }
-
-    public InteresGenerado getInteresGenerado() {
-        return interesGenerado;
-    }
-
-    public AnticipoPermitido getAnticipoPermitido() {
-        return anticipoPermitido;
     }
 }

@@ -2,7 +2,7 @@ package co.com.banco.entity;
 
 import co.com.banco.value.*;
 import co.com.sofka.domain.generic.AggregateEvent;
-import co.com.sofka.domain.generic.Entity;
+
 
 public class CuentaAhorro extends AggregateEvent<CuentaAhorroID> {
     protected CuentaAhorroID cuentaAhorroID;

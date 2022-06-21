@@ -6,7 +6,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 
 public class CuentaNominaActualizada extends DomainEvent {
 
-    private final CuentaNominaID nominaID;
+    private final CuentaNominaID cuentaNominaID;
     private final NumeroCuenta numeroCuenta;
     private final Saldo saldo;
     private final InteresGenerado interesGenerado;
@@ -14,7 +14,7 @@ public class CuentaNominaActualizada extends DomainEvent {
     public CuentaNominaActualizada(CuentaNominaID cuentaNominaID, NumeroCuenta numeroCuenta,
                                    Saldo saldo, InteresGenerado interesGenerado, AnticipoPermitido anticipoPermitido) {
         super("co.com.banco.event.CuentaNominaActualizada");
-        this.nominaID = cuentaNominaID;
+        this.cuentaNominaID = cuentaNominaID;
         this.numeroCuenta = numeroCuenta;
         this.saldo = saldo;
         this.interesGenerado = interesGenerado;
@@ -22,7 +22,7 @@ public class CuentaNominaActualizada extends DomainEvent {
     }
 
     public CuentaNominaID getNominaID() {
-        return nominaID;
+        return cuentaNominaID;
     }
 
     public NumeroCuenta getNumeroCuenta() {
