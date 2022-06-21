@@ -1,9 +1,6 @@
 package co.com.banco.cliente;
 
-import co.com.banco.command.ActualizarCuentaAhorro;
 import co.com.banco.command.ActualizarCuentaNomina;
-import co.com.banco.event.CuentaAhorroActualizada;
-import co.com.banco.event.CuentaAhorroCreated;
 import co.com.banco.event.CuentaNominaActualizada;
 import co.com.banco.event.CuentaNominaCreated;
 import co.com.banco.usecase.ActualizarCuentaNominaUseCase;

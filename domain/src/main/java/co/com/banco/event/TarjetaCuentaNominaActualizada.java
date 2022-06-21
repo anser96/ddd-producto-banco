@@ -14,7 +14,10 @@ public class TarjetaCuentaNominaActualizada extends DomainEvent {
     private final CupoDisponible cupoDisponible;
     private final Franquicia franquicia;
 
-    public TarjetaCuentaNominaActualizada(TarjetaID tarjetaID, TarjetaCreditoID tarjetaCreditoID, NumeroTarjeta numeroTarjeta, FechaVencimiento fechaVencimiento, Cvv cvv, NombrePropietario nombrePropietario, CupoDisponible cupoDisponible, Franquicia franquicia) {
+    public TarjetaCuentaNominaActualizada(TarjetaID tarjetaID, TarjetaCreditoID tarjetaCreditoID,
+                                          NumeroTarjeta numeroTarjeta, FechaVencimiento fechaVencimiento, Cvv cvv,
+                                          NombrePropietario nombrePropietario, CupoDisponible cupoDisponible,
+                                          Franquicia franquicia) {
         super("co.com.banco.event.TarjetaCuentaNominaActualizada");
         this.tarjetaID = tarjetaID;
         this.tarjetaCreditoID = tarjetaCreditoID;

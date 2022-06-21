@@ -14,8 +14,8 @@ public class Franquicia implements ValueObject<String> {
         }
     }
 
-    public static NombrePropietario of(String value) {
-        return new NombrePropietario(value);
+    public static Franquicia of(String value) {
+        return new Franquicia(value);
     }
 
     public String value() {
